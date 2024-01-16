@@ -1,0 +1,15 @@
+<!-- app/views/projects/show.html.erb -->
+
+<h1><%= @project.title %></h1>
+
+<p><strong>Description:</strong> <%= @project.description %></p>
+
+<% if policy(@project).update? %>
+  <%= link_to 'Edit Project', edit_project_path(@project) %>
+<% end %>
+
+<% if policy(@project).destroy? %>
+  <%= link_to 'Delete Project', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<%= link_to 'Back to Projects', projects_path %>

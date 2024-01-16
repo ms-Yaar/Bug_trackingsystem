@@ -1,0 +1,35 @@
+<!-- app/views/bugs/_form.html.erb -->
+
+<%= form_for(@bug) do |f| %>
+  <% if @bug.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bug.errors.count, "error") %> prohibited this bug from being saved:</h2>
+      <ul>
+        <% @bug.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :bugtype %>
+    <%= f.select :bugtype, options_for_select(['Feature', 'Bug']), prompt: 'Select Bug Type' %>
+  </div>
+
+  <div>
+    <%= f.label :status %>
+    <%= f.select :status, options_for_select(['New', 'Started', 'Completed']), prompt: 'Select Bug Status' %>
+  </div>
+
+  <!-- Add other bug attributes as needed -->
+
+  <div>
+    <%= f.submit 'Update Bug' %>
+  </div>
+<% end %>

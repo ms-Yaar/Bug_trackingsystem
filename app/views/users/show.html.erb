@@ -1,0 +1,14 @@
+<!-- app/views/users/show.html.erb -->
+
+<h1>User Profile</h1>
+
+<p><strong>Name:</strong> <%= @user.name %></p>
+<p><strong>Email:</strong> <%= @user.email %></p>
+
+<% if policy(@user).update? %>
+  <%= link_to 'Edit Profile', edit_user_path(@user) %>
+<% end %>
+
+<% if policy(@user).destroy? %>
+  <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

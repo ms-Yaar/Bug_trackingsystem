@@ -1,0 +1,16 @@
+<!-- app/views/bugs/show.html.erb -->
+
+<h1><%= @bug.title %></h1>
+
+<p><strong>Type:</strong> <%= @bug.bugtype %></p>
+<p><strong>Status:</strong> <%= @bug.status %></p>
+
+<% if policy(@bug).update? %>
+  <%= link_to 'Edit Bug', edit_bug_path(@bug) %>
+<% end %>
+
+<% if policy(@bug).destroy? %>
+  <%= link_to 'Delete Bug', @bug, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<%= link_to 'Back to Bugs', bugs_path %>

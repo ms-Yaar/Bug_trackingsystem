@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>BugTrackingsystem</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Bug Tracking System</title>
+  
+</head>
+<body>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
+<nav>
+  <ul>
+    <li><%= link_to 'Home', root_path %></li>
+    <li><%= link_to 'Projects', projects_path %></li>
+    <li><%= link_to 'Bugs', bugs_path %></li>
+    
+  </ul>
+</nav>
 
-  <body>
-    <%= yield %>
-  </body>
+<%= yield %>
+
+</body>
 </html>

@@ -1,0 +1,21 @@
+<!-- app/views/bugs/index.html.erb -->
+
+<h1>Bugs</h1>
+
+<% @bugs.each do |bug| %>
+  <div>
+    <h2><%= link_to bug.title, bug %></h2>
+    <p><strong>Type:</strong> <%= bug.bugtype %></p>
+    <p><strong>Status:</strong> <%= bug.status %></p>
+
+    <% if policy(bug).update? %>
+      <%= link_to 'Edit Bug', edit_bug_path(bug) %>
+    <% end %>
+
+    <% if policy(bug).destroy? %>
+      <%= link_to 'Delete Bug', bug, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to 'New Bug', new_bug_path %>

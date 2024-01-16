@@ -1,0 +1,21 @@
+<!-- app/views/bugs/new.html.erb -->
+
+<h1>New Bug</h1>
+
+<%= form_with(model: @bug, url: bugs_path, local: true) do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <!-- Add other bug attributes here -->
+
+  <div>
+    <%= form.submit 'Create Bug' %>
+  </div>
+<% end %>
